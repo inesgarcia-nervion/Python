@@ -39,3 +39,6 @@ class CuentaCorriente:
     
     def __eq__(self, other): #Método eq
         return self.dni == other.dni
+    
+    def __lt__(self, other): #Método lt
+        return self.saldo < other.saldo
