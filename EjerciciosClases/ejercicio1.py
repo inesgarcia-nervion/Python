@@ -12,19 +12,19 @@ Añade los siguientes constructores:
     si tienen el mismo DNI. Las cuentas corrientes se ordenarán de menor a mayor por el saldo. '''
 
 class CuentaCorriente:
-    def __init__(self, dni, saldo_inicial, nombre):     #Constructores (con todos los parámetros)
+    def __init__(self, dni, saldoInicial, nombre):     #Constructores (con todos los parámetros)
         self.dni = dni
-        self.saldo = saldo_inicial
+        self.saldoInicial = saldoInicial
         self.nombre = nombre
 
-    def __init__(self, dni, saldo_inicial):     #Constructores (nombre tiene que estar vacio)
+    def __init__(self, dni, saldoInicial):     #Constructores (nombre tiene que estar vacio)
         self.dni = dni
-        self.saldo = saldo_inicial
+        self.saldoInicial = saldoInicial
         self.nombre = ""
 
     def sacarDinero(self, cantidad):  #Método para sacar dinero
-        if cantidad <= self.saldo:
-            self.saldo -= cantidad
+        if cantidad <= self.saldoInicial:
+            self.saldoInicial -= cantidad
             return True
         else:
             return False
@@ -32,14 +32,14 @@ class CuentaCorriente:
         
     def ingresarDinero(self, cantidad):    #Método para ingresar dinero
         if cantidad >  0:
-            self.saldo += cantidad
+            self.saldoInicial += cantidad
             return True
         else:
             return False
     
 
     def __str__(self):  #Método str para imprimir los datos de la cuenta
-        return f"DNI: {self.dni}, Nombre: {self.nombre}, Saldo: {self.saldo}"
+        return f"DNI: {self.dni}, Nombre: {self.nombre}, Saldo: {self.saldoInicial}"
     
 
     def __eq__(self, other): #Método eq para comparar los DNI de dos cuentas
@@ -47,7 +47,7 @@ class CuentaCorriente:
     
 
     def __lt__(self, other): #Método lt para ordenar las cuentas por saldo
-        return self.saldo < other.saldo
+        return self.saldoInicial < other.saldoInicial
     
 
 
