@@ -19,3 +19,56 @@ En el caso de Perro, además del constructor, definirá los siguientes métodos:
     b.__str__: Primero escribirá “Soy un perro” y a continuación la misma cadena que el padre.'''
 
 
+class Animal:
+    def __init__(self, nombre, numPatas):
+        self.nombre = nombre
+        self.numPatas = numPatas
+    
+
+    def habla(self):
+        return ''
+    
+
+    def __str__(self):
+        return f"Me llamo {self.nombre}, tengo {self.numPatas} patas y sueno así: {self.habla()}"
+    
+
+class Gato(Animal):
+    def __init__(self, nombre, numPatas):
+        super().__init__(nombre, numPatas)
+
+    def habla(self):
+        return "Miau"
+
+    def __str__(self):
+        return f"Soy un gato. {super().__str__()}"
+
+
+
+class Perro(Animal):
+    def __init_(self, nombre, numPatas):
+        super().__init__(nombre, numPatas)
+
+    def habla(self):
+        return "Guau"
+
+    def __str__(self):
+        return f"Soy un perro. {super().__str__()}"
+
+
+
+#Pruebas
+animal1 = Animal("Kira", 4)
+animal2 = Gato("Bigotitos", 4)
+animal3 = Perro("Rocky", 4)
+
+
+print(animal1)
+print(animal2)
+print(animal3)
+
+
+
+print(animal1.habla())
+print(animal2.habla())
+print(animal3.habla())
