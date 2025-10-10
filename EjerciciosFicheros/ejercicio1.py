@@ -9,23 +9,40 @@ y de las estaturas, mostrándolas por pantalla.   '''
 
 
 
-f = open('Alumnos.txt', 'w', encoding="utf8")   #Para que se vean las tildes
-f.write("juan 22 1.77 \n")
-f.write("luis 21 1.80 \n")
-f.write("pedro 20 1.73 \n")
+with open('Alumnos.txt', 'w', encoding="utf8") as f:   #Para que se vean las tildes
+    f.write("juan 22 1.77 \n")
+    f.write("luis 21 1.80 \n")
+    f.write("pedro 20 1.73 \n")
 
 
 
-class Alumno:
-    def __init__(self, nombre, edad, estatura):
-        self.nombre = nombre
-        self.edad = edad
-        self.estatura = estatura
-    
-    def leerNombres(self):
-        alumnos = []
-        f = open('Alumnos.txt', 'w', encoding="utf8")
-        for linea in f:
-            letras = linea.split()
+
+edadTotal = 0
+estaturaTotal = 0
+cantidadAlumnos = 0
 
 
+
+print('Nombre de los alumnos: ')        #Para que no entre en el bucle
+
+
+with open('Alumnos.txt', 'r', encoding="utf8") as f:
+    for linea in f.readlines():
+        separacion = linea.split()
+        nombre = separacion[0]
+        edad = int(separacion[1])
+        estatura = float(separacion[2])
+
+        edadTotal += edad
+        estaturaTotal += estatura
+        cantidadAlumnos += 1
+
+        print(nombre)                   #Para imprimir cada nombre de manera individual
+
+
+
+mediaEdad = edadTotal / cantidadAlumnos
+mediaEstatura = estaturaTotal / cantidadAlumnos
+
+print(f'La edad media de los alumnos es de {mediaEdad} años')
+print(f'La estatura media de los alumnos es de {mediaEstatura} metros')
